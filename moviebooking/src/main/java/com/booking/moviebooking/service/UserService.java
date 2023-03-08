@@ -1,5 +1,6 @@
 package com.booking.moviebooking.service;
 
+import com.booking.moviebooking.exception.UserNotFoundException;
 import com.booking.moviebooking.utility.UserRequest;
 import com.booking.moviebooking.utility.UserResponse;
 import com.booking.moviebooking.mapper.UserMapper;
@@ -30,9 +31,14 @@ public class UserService {
         }
     }
 
-    public UserResponse getUserById(long id) {
+    public UserResponse getUserById(long id) throws UserNotFoundException {
         UserResponse userresponse=UserMapper.userMapper.toUserResponse((userRepository.getReferenceById(id)));
-        return userresponse;
+         if(userresponse!=null)
+         {
+             return userresponse;
+         }else {
+             throw new UserNotFoundException("User not Found");
+         }
     }
 
     public List<UserResponse> getAllUsers() {
