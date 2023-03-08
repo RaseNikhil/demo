@@ -1,13 +1,19 @@
 package com.booking.moviebooking.controller;
 
 
+import com.booking.moviebooking.exception.MovieAlreadyPresent;
+import com.booking.moviebooking.exception.MovieNotFoundException;
 import com.booking.moviebooking.service.MovieService;
 import com.booking.moviebooking.utility.MovieRequest;
 import com.booking.moviebooking.utility.MovieResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,25 +23,13 @@ public class MovieController {
     MovieService movieService;
 
     @PostMapping("/addMovie")
-    public String addMovie(@RequestBody MovieRequest movieRequest){
-        try{
-            return movieService.addMovie(movieRequest);
-        }catch (Exception e){
-            return String.format(e.toString());
-        }
+    public String addMovie(@RequestBody  @Valid MovieRequest movieRequest) throws MovieAlreadyPresent {
+        return movieService.addMovie(movieRequest);
     }
     @GetMapping("/getMovieById/{id}")
-    public ResponseEntity<MovieResponse>  getMovieById(@PathVariable("id") int id)
+    public ResponseEntity<MovieResponse>  getMovieById(@PathVariable("id")  int id ) throws MovieNotFoundException
     {
-        try
-        {
-            return movieService.getMovieById(id);
-
-
-        }catch(Exception ex)
-        {
-            return  new  ResponseEntity<>(null , HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return movieService.getMovieById(id);
 
 
     }
@@ -58,17 +52,11 @@ public class MovieController {
 
     @PostMapping("/addMovies")
 
-    public ResponseEntity<String>   addMovies(@RequestBody List<MovieRequest> movieRequestList)
+    public ResponseEntity<String>   addMovies(@RequestBody @Valid  List<MovieRequest> movieRequestList) throws MovieAlreadyPresent
+
     {
 
-        try
-        {
-            return  movieService.addMovies(movieRequestList);
-
-        }catch (Exception ex)
-        {
-            return  new ResponseEntity<>("Something went wrong",HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return  movieService.addMovies(movieRequestList);
     }
 
 

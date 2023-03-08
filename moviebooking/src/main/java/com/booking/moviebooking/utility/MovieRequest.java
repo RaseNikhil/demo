@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
@@ -15,8 +18,15 @@ import java.util.Date;
 public class MovieRequest {
 
 
+    @NotNull(message = "user Id not provided")
+    @NotEmpty(message = "userId is empty")
+    @NotBlank
     @JsonProperty("userId")
     private Integer userId;
+
+
+    @NotNull(message = "movie should not be null")
+    @NotBlank(message = "please enter movie name")
     @JsonProperty("movieName")
     private String movieName;
 
@@ -26,8 +36,12 @@ public class MovieRequest {
     @JsonProperty("genre")
     private String genre;
 
+
+
     @JsonProperty("showTiming")
     private Date showTiming;
+
+
 
     @JsonProperty("movieLanguage")
     private String movieLanguage;
