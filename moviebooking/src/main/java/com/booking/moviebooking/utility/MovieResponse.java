@@ -9,11 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "movie")
+
 public class MovieResponse {
 
     @JsonProperty("movieName")

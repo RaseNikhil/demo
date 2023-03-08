@@ -50,7 +50,7 @@ public class MovieService {
        return new ResponseEntity<>("All movies added", HttpStatus.OK);
     }
     public ResponseEntity<String> deleteMovieById(int id){
-        Movie movieExist=movieRepository.findByMovieid(id);
+        Movie movieExist=movieRepository.findByMovieId(id);
         if(movieExist!=null){
             movieRepository.deleteById(id);
             return new ResponseEntity<>("Succefully Deleted ",HttpStatus.OK);
@@ -60,7 +60,7 @@ public class MovieService {
         }
     }
     public ResponseEntity<String> updateById(int id,MovieRequest movieRequest){
-        Movie movieExist=movieRepository.findByMovieid(id);
+        Movie movieExist=movieRepository.findByMovieId(id);
         if(movieExist!=null){
           movieExist.setMovieName(movieRequest.getMovieName());
           movieExist.setMovieDescription(movieRequest.getMovieDescription());

@@ -1,6 +1,5 @@
 package com.booking.moviebooking.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,7 +33,7 @@ public class UserTable {
 
     @OneToOne()
 
-    private Role  role;
+    private RoleTable role;
 
 
 

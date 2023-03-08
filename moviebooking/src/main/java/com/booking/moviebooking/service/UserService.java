@@ -20,7 +20,7 @@ public class UserService {
     }
 
     public UserResponse addUser(UserRequest userrequest) {
-        UserTable userTable=userRepository.findByEmail();
+        UserTable userTable=userRepository.findByEmail(userrequest.getEmail());
         if(userTable==null){
           UserTable userTable1=userRepository.save(UserMapper.userMapper.toUserTable(userrequest));
           return UserMapper.userMapper.toUserResponse(userTable1);

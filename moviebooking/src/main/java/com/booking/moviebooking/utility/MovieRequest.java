@@ -8,11 +8,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "movie")
 public class MovieRequest {
 
     @JsonProperty("userId")
