@@ -13,10 +13,10 @@ import java.util.List;
 public interface MovieMapper {
   MovieMapper movieMapper = Mappers.getMapper(MovieMapper.class);
 
-    Movie toMovieEntity(MovieRequest movieRequest);
+    Movie toEntity(MovieRequest movieRequest);
 
-    MovieResponse toMovieResponse(Movie movie);
+    MovieResponse toResponse(Movie movie);
 
-    List<MovieResponse> toMovieResponseList(List<Movie> movieList);
+    List<MovieResponse> toResponseList(List<Movie> movieList);
 }
 
