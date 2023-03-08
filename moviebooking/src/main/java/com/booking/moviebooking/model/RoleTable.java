@@ -28,7 +28,7 @@ public class RoleTable {
 
 
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "role")
 
     private  UserTable userTable;
 

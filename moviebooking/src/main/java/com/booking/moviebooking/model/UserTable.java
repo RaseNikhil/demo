@@ -31,7 +31,8 @@ public class UserTable {
     private String password;
 
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @Column(updatable = false,nullable = false)
 
     private RoleTable role;
 
