@@ -1,13 +1,10 @@
 package com.booking.moviebooking.controller;
 
-<<<<<<< Updated upstream
 import com.booking.moviebooking.utility.UserRequest;
 import com.booking.moviebooking.utility.UserResponse;
-=======
-import com.booking.moviebooking.model.UserRequest;
-import com.booking.moviebooking.model.UserResponse;
+
+
 import com.booking.moviebooking.model.UserTable;
->>>>>>> Stashed changes
 import com.booking.moviebooking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +31,7 @@ public class UserController {
 
 
     @GetMapping("/getAllUsers")
-    public List<UserTable> getAllUsers()
+    public List<UserResponse> getAllUsers()
     {
         return userservice.getAllUsers();
     }
