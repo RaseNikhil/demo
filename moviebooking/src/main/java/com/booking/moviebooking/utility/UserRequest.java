@@ -15,14 +15,14 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class UserRequest {
 
-    @Column(name="User_Name")
-    @JsonProperty("UserName")
+
+    @JsonProperty("userName")
     private String UserName;
-    @Column(name="Email")
-    @JsonProperty("Email")
+
+    @JsonProperty("email")
     private String email;
 
-    @Column(name="password")
+
     @JsonProperty("password")
     private String password;
 }

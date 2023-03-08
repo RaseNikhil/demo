@@ -5,8 +5,7 @@ import com.booking.moviebooking.utility.UserRequest;
 import com.booking.moviebooking.utility.UserResponse;
 =======
 import com.booking.moviebooking.mapper.UserMapper;
-import com.booking.moviebooking.model.UserRequest;
-import com.booking.moviebooking.model.UserResponse;
+
 import com.booking.moviebooking.model.UserTable;
 >>>>>>> Stashed changes
 import com.booking.moviebooking.repository.UserRepository;
