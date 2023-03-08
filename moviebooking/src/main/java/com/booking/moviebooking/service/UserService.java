@@ -3,10 +3,7 @@ package com.booking.moviebooking.service;
 import com.booking.moviebooking.utility.UserRequest;
 import com.booking.moviebooking.utility.UserResponse;
 import com.booking.moviebooking.mapper.UserMapper;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 import com.booking.moviebooking.model.UserTable;
 import com.booking.moviebooking.repository.UserRepository;
 import org.springframework.stereotype.Service;

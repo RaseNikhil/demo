@@ -6,6 +6,8 @@ import com.booking.moviebooking.utility.MovieRequest;
 import com.booking.moviebooking.repository.MovieRepository;
 import com.booking.moviebooking.utility.MovieResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,17 +28,50 @@ public class MovieService {
         }
     }
 
-    public MovieResponse getMovieById(int id){
+    public  ResponseEntity<MovieResponse> getMovieById(int id){
         Optional<Movie> movieData=movieRepository.findById(id);
+
         if(movieData.isPresent()){
-            return MovieMapper.movieMapper.toResponse(movieData.get());
+           return new ResponseEntity<>(MovieMapper.movieMapper.toResponse(movieData.get()),HttpStatus.OK);
         }else{
-            return null;
+            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }
 
-    public List<MovieResponse> getAllMovies(){
+    public  ResponseEntity<List<MovieResponse>> getAllMovies(){
         List<MovieResponse> allMovies = MovieMapper.movieMapper.toResponseList(movieRepository.findAll());
-        return allMovies;
+        return  new ResponseEntity<>(allMovies,HttpStatus.OK);
+    }
+
+
+    public ResponseEntity<String> addMovies(List<MovieRequest> movieRequestList){
+        List<Movie> movies=MovieMapper.movieMapper.toMovie(movieRequestList);
+       List<Movie> movieList= movieRepository.saveAll(movies);
+       return new ResponseEntity<>("All movies added", HttpStatus.OK);
+    }
+    public ResponseEntity<String> deleteMovieById(int id){
+        Movie movieExist=movieRepository.findByMovieid(id);
+        if(movieExist!=null){
+            movieRepository.deleteById(id);
+            return new ResponseEntity<>("Succefully Deleted ",HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("No movie found",HttpStatus.NOT_FOUND);
+        }
+    }
+    public ResponseEntity<String> updateById(int id,MovieRequest movieRequest){
+        Movie movieExist=movieRepository.findByMovieid(id);
+        if(movieExist!=null){
+          movieExist.setMovieName(movieRequest.getMovieName());
+          movieExist.setMovieDescription(movieRequest.getMovieDescription());
+          movieExist.setMovieLanguage(movieRequest.getMovieLanguage());
+          movieExist.setGenre(movieRequest.getGenre());
+          movieExist.setShowTiming(movieRequest.getShowTiming());
+            movieRepository.saveAndFlush(movieExist);
+            return new ResponseEntity<>("Successfully Updated",HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("Movie Not found",HttpStatus.NOT_FOUND);
+        }
     }
 }

@@ -18,5 +18,7 @@ public interface MovieMapper {
     MovieResponse toResponse(Movie movie);
 
     List<MovieResponse> toResponseList(List<Movie> movieList);
+
+    List<Movie> toMovie(List<MovieRequest> movieRequestList);
 }
 
