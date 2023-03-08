@@ -77,16 +77,9 @@ public class MovieController {
 
     @PutMapping("/updateMovie/{id}")
 
-    public ResponseEntity<String>  updateById(@PathVariable("id") int id , @RequestBody MovieRequest movieRequest)
-    {
+    public ResponseEntity<String>  updateById(@PathVariable("id") int id , @RequestBody MovieRequest movieRequest) throws MovieNotFoundException {
 
-        try
-        {  return  movieService.updateById(id,movieRequest);
-
-        }catch (Exception  ex )
-        {
-            return  new ResponseEntity<>("Something Went Wrong",HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return  movieService.updateById(id,movieRequest);
     }
 
 

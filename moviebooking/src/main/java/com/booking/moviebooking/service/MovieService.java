@@ -58,18 +58,21 @@ public class MovieService {
        List<Movie> movieList= movieRepository.saveAll(movies);
        return new ResponseEntity<>("All movies added", HttpStatus.OK);
     }
-    public ResponseEntity<String> deleteMovieById(int id){
+    public ResponseEntity<String> deleteMovieById(int id) throws  MovieNotFoundException{
         Movie movieExist=movieRepository.findByMovieId(id);
         if(movieExist!=null){
             movieRepository.deleteById(id);
             return new ResponseEntity<>("Succefully Deleted ",HttpStatus.OK);
         }
         else{
-            return new ResponseEntity<>("No movie found",HttpStatus.NOT_FOUND);
+           throw  new  MovieNotFoundException("Movie not Found");
         }
     }
-    public ResponseEntity<String> updateById(int id,MovieRequest movieRequest){
+
+
+    public ResponseEntity<String> updateById(int id,MovieRequest movieRequest) throws MovieNotFoundException {
         Movie movieExist=movieRepository.findByMovieId(id);
+
         if(movieExist!=null){
           movieExist.setMovieName(movieRequest.getMovieName());
           movieExist.setMovieDescription(movieRequest.getMovieDescription());
@@ -80,7 +83,7 @@ public class MovieService {
             return new ResponseEntity<>("Successfully Updated",HttpStatus.OK);
         }
         else{
-            return new ResponseEntity<>("Movie Not found",HttpStatus.NOT_FOUND);
+            throw new MovieNotFoundException("Movie Not Found");
         }
     }
 }
