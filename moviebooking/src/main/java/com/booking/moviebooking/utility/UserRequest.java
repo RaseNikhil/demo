@@ -1,24 +1,19 @@
-package com.booking.moviebooking.model;
+package com.booking.moviebooking.utility;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name="UserTable")
-public class UserTable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="User_id")
-    @JsonProperty("UserId")
-    private Long UserId;
+@AllArgsConstructor
+public class UserRequest {
 
     @Column(name="User_Name")
     @JsonProperty("UserName")
@@ -30,12 +25,4 @@ public class UserTable {
     @Column(name="password")
     @JsonProperty("password")
     private String password;
-
-
-    @OneToOne()
-    @JsonProperty("role")
-    private Role  role;
-
-
-
 }

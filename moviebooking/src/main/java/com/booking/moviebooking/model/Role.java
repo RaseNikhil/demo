@@ -18,6 +18,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("roleId")
+    @Column(nullable = false)
     private Integer roleId;
 
 
@@ -28,7 +29,7 @@ public class Role {
 
 
     @JsonProperty("userTable")
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 
     private  UserTable userTable;
 
