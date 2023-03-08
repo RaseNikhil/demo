@@ -32,7 +32,7 @@ public class UserTable {
 
 
     @OneToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    @Column(updatable = false,nullable = false)
+    @JoinColumn(name ="roleId", updatable = false,nullable = false)
 
     private RoleTable role;
 
