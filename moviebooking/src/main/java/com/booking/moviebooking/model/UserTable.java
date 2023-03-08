@@ -30,4 +30,12 @@ public class UserTable {
     @Column(name="password")
     @JsonProperty("password")
     private String password;
+
+
+    @OneToOne()
+    @JsonProperty("role")
+    private Role  role;
+
+
+
 }
