@@ -17,18 +17,18 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("roleId")
+
     @Column(nullable = false)
     private Integer roleId;
 
 
-    @JsonProperty("role")
+
 
     private String role;
 
 
 
-    @JsonProperty("userTable")
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 
     private  UserTable userTable;
