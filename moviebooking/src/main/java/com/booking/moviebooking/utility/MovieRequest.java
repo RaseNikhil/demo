@@ -14,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class MovieRequest {
 
+
     @JsonProperty("userId")
     private Integer userId;
     @JsonProperty("movieName")
