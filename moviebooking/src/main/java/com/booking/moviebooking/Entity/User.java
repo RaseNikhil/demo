@@ -1,5 +1,4 @@
-package Entity;
-
+package com.booking.moviebooking.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jdk.jfr.Enabled;
