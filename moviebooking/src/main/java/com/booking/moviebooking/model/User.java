@@ -1,7 +1,6 @@
-package com.booking.moviebooking.Entity;
+package com.booking.moviebooking.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
