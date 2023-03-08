@@ -2,8 +2,8 @@ package com.booking.moviebooking.mapper;
 
 
 import com.booking.moviebooking.model.Movie;
-import com.booking.moviebooking.model.MovieRequest;
-import com.booking.moviebooking.model.MovieResponse;
+import com.booking.moviebooking.utility.MovieRequest;
+import com.booking.moviebooking.utility.MovieResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

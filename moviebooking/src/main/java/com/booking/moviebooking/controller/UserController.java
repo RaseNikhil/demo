@@ -1,9 +1,8 @@
 package com.booking.moviebooking.controller;
 
-import com.booking.moviebooking.model.UserRequest;
-import com.booking.moviebooking.model.UserResponse;
+import com.booking.moviebooking.utility.UserRequest;
+import com.booking.moviebooking.utility.UserResponse;
 import com.booking.moviebooking.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
