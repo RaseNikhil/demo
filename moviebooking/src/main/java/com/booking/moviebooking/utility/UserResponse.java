@@ -15,12 +15,12 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class UserResponse {
 
-    @JsonProperty("UserId")
+    @JsonProperty("userId")
     private Long UserId;
 
-    @JsonProperty("UserName")
+    @JsonProperty("userName")
     private String UserName;
-    @JsonProperty("Email")
+    @JsonProperty("email")
     private String email;
 
     @JsonProperty("password")

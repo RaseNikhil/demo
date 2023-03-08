@@ -2,6 +2,9 @@ package com.booking.moviebooking.controller;
 
 import com.booking.moviebooking.utility.UserRequest;
 import com.booking.moviebooking.utility.UserResponse;
+
+
+import com.booking.moviebooking.model.UserTable;
 import com.booking.moviebooking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
