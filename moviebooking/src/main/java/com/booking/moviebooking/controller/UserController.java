@@ -14,13 +14,13 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
     UserService userservice;
     @PostMapping("/addUser")
-    public UserResponse addUser( @Valid UserRequest  userrequest)
+    public UserResponse addUser( @Valid @RequestBody UserRequest  userrequest)
     {
         return userservice.addUser(userrequest);
     }

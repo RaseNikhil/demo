@@ -8,6 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EmailValidatorClass implements ConstraintValidator<PasswordValidator,String> {
+
+
     @Override
     public boolean isValid(String password, ConstraintValidatorContext constraintValidatorContext) {
 
