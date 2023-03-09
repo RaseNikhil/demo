@@ -1,6 +1,7 @@
 package com.booking.moviebooking.service;
 
 import com.booking.moviebooking.exception.UserNotFoundException;
+import com.booking.moviebooking.mapper.UserMappers;
 import com.booking.moviebooking.utility.UserRequest;
 import com.booking.moviebooking.utility.UserResponse;
 import com.booking.moviebooking.mapper.UserMapper;
@@ -21,10 +22,15 @@ public class UserService {
     }
 
     public UserResponse addUser(UserRequest userrequest) {
+
+        System.out.println(UserMappers.INSTANCE);
+        System.out.println(userrequest);
         UserTable userTable=userRepository.findByEmail(userrequest.getEmail());
         if(userTable==null){
-          UserTable userTable1=userRepository.save(UserMapper.userMapper.toUserTable(userrequest));
-          return UserMapper.userMapper.toUserResponse(userTable1);
+            System.out.println("Inside");
+
+          UserTable userTable1=userRepository.save(UserMapper.INSTANCE.toUserTable(userrequest));
+          return UserMapper.INSTANCE.toUserResponse(userTable1);
         }
         else{
             return null;
@@ -32,7 +38,7 @@ public class UserService {
     }
 
     public UserResponse getUserById(long id) throws UserNotFoundException {
-        UserResponse userresponse=UserMapper.userMapper.toUserResponse((userRepository.getReferenceById(id)));
+        UserResponse userresponse=UserMapper.INSTANCE.toUserResponse((userRepository.getReferenceById(id)));
          if(userresponse!=null)
          {
              return userresponse;
@@ -42,7 +48,7 @@ public class UserService {
     }
 
     public List<UserResponse> getAllUsers() {
-           List<UserResponse> usertable1= UserMapper.userMapper.toUserResponseList(userRepository.findAll());
+           List<UserResponse> usertable1= UserMapper.INSTANCE.toUserResponseList(userRepository.findAll());
            return usertable1;
 
     }

@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    UserMapper userMapper= Mappers.getMapper(UserMapper.class);
+    UserMapper INSTANCE= Mappers.getMapper(UserMapper.class);
 
     UserTable toUserTable(UserRequest userRequest);
 

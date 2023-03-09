@@ -15,14 +15,14 @@ public class UserTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="User_id")
+    @Column(name="userId")
 
-    private Long UserId;
+    private Long userId;
 
-    @Column(name="User_Name")
+    @Column(name="userName")
 
-    private String UserName;
-    @Column(name="Email")
+    private String userName;
+    @Column(name="email")
 
     private String email;
 

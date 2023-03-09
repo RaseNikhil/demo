@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
-@Data
+ 
 @NoArgsConstructor
 @AllArgsConstructor
 public class MovieRequest {
@@ -46,6 +46,52 @@ public class MovieRequest {
     @JsonProperty("movieLanguage")
     private String movieLanguage;
 
+    public Integer getUserId() {
+        return userId;
+    }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getMovieName() {
+        return movieName;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public String getMovieDescription() {
+        return movieDescription;
+    }
+
+    public void setMovieDescription(String movieDescription) {
+        this.movieDescription = movieDescription;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public Date getShowTiming() {
+        return showTiming;
+    }
+
+    public void setShowTiming(Date showTiming) {
+        this.showTiming = showTiming;
+    }
+
+    public String getMovieLanguage() {
+        return movieLanguage;
+    }
+
+    public void setMovieLanguage(String movieLanguage) {
+        this.movieLanguage = movieLanguage;
+    }
 }
 
