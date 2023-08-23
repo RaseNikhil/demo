@@ -22,7 +22,7 @@ public class UserController {
     @PostMapping("/addUser")
     public UserResponse addUser( @Valid @RequestBody UserRequest  userrequest)
     {
-        System.out.println(userrequest);
+//        System.out.println(userrequest);
         return userservice.addUser(userrequest);
     }
 
@@ -37,8 +37,4 @@ public class UserController {
     {
         return userservice.getAllUsers();
     }
-
-
-
-
 }

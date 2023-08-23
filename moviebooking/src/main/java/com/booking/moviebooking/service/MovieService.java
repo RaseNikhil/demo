@@ -17,8 +17,11 @@ import java.util.Optional;
 
 @Service
 public class MovieService {
-    @Autowired
     MovieRepository movieRepository;
+
+    public MovieService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
 
     public String addMovie(MovieRequest movieRequest) throws MovieAlreadyPresent {
         Optional<Movie> movieData = movieRepository.findById(movieRequest.getUserId());
